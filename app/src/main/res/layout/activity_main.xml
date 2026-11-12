@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F1F5F9">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- CABECERA SUPERIOR -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:background="@drawable/bg_header"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SMART MONITOR IoT"
+                android:textColor="#38BDF8"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.15"
+                android:layout_marginBottom="4dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Control Ambiental"
+                android:textColor="#FFFFFF"
+                android:textSize="26sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Arduino • Bluetooth"
+                android:textColor="#94A3B8"
+                android:textSize="13sp"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
+
+        <!-- CONTENEDOR PRINCIPAL -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:layout_marginTop="-24dp">
+
+            <!-- SECCIÓN 1: REGISTRO Y LOGIN CON SALTED HASH (ISO 27400) -->
+            <LinearLayout
+                android:id="@+id/layoutLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_card"
+                android:elevation="6dp"
+                android:orientation="vertical"
+                android:padding="24dp"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Acceso y Registro Seguro"
+                    android:textColor="#0F172A"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sitio protegido por BYLLI"
+                    android:textColor="#64748B"
+                    android:textSize="13sp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="18dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="USUARIO"
+                    android:textColor="#475569"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="6dp"/>
+
+                <EditText
+                    android:id="@+id/etUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:background="@drawable/bg_input"
+                    android:hint="Ej: admin"
+                    android:textColorHint="#94A3B8"
+                    android:textColor="#0F172A"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:inputType="text"
+                    android:layout_marginBottom="14dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CONTRASEÑA"
+                    android:textColor="#475569"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="6dp"/>
+
+                <EditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:background="@drawable/bg_input"
+                    android:hint="Ingresa tu contraseña"
+                    android:textColorHint="#94A3B8"
+                    android:textColor="#0F172A"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:inputType="textPassword"
+                    android:layout_marginBottom="22dp"/>
+
+                <!-- Botón Iniciar Sesión -->
+                <Button
+                    android:id="@+id/btnLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:text="INICIAR SESIÓN"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#2563EB"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="10dp"/>
+
+                <!-- Botón Registrar Usuario (Genera nuevo Salt y nuevo Hash) -->
+                <Button
+                    android:id="@+id/btnRegister"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="REGISTRAR / ACTUALIZAR USUARIO"
+                    android:textStyle="bold"
+                    android:textColor="#1E3A8A"
+                    android:backgroundTint="#DBEAFE"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <!-- SECCIÓN 2: DASHBOARD DE TELEMETRÍA -->
+            <LinearLayout
+                android:id="@+id/layoutDashboard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!-- Tarjeta de Estado de Conexión Bluetooth -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card"
+                    android:elevation="4dp"
+                    android:padding="16dp"
+                    android:gravity="center"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:id="@+id/tvStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Estado: Buscando módulo Bluetooth..."
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#E65100"
+                        android:gravity="center"/>
+                </LinearLayout>
+
+                <!-- Tarjeta Indicadora de Mapa de Calor (Verde / Amarillo / Rojo) -->
+                <LinearLayout
+                    android:id="@+id/cardHeatmap"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card"
+                    android:elevation="4dp"
+                    android:padding="14dp"
+                    android:gravity="center"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:id="@+id/tvHeatmapState"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mapa de Calor: -- (Esperando datos)"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:textColor="#64748B"
+                        android:gravity="center"/>
+                </LinearLayout>
+
+                <!-- Contenedor Horizontal para Tarjetas de Temperatura y Humedad -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_marginBottom="20dp">
+
+                    <!-- Tarjeta Temperatura -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="150dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/bg_card"
+                        android:elevation="4dp"
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TEMPERATURA"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            android:textColor="#64748B"
+                            android:letterSpacing="0.08"
+                            android:layout_marginBottom="8dp"/>
+
+                        <TextView
+                            android:id="@+id/tvTemperature"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Temp: -- °C"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
+                            android:textColor="#EF4444"
+                            android:gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sensor DHT11"
+                            android:textSize="11sp"
+                            android:textColor="#94A3B8"
+                            android:layout_marginTop="8dp"/>
+                    </LinearLayout>
+
+                    <!-- Tarjeta Humedad Relativa -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="150dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/bg_card"
+                        android:elevation="4dp"
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="HUMEDAD REL."
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            android:textColor="#64748B"
+                            android:letterSpacing="0.08"
+                            android:layout_marginBottom="8dp"/>
+
+                        <TextView
+                            android:id="@+id/tvHumidity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Hum: -- %"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
+                            android:textColor="#0284C7"
+                            android:gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sensor DHT11"
+                            android:textSize="11sp"
+                            android:textColor="#94A3B8"
+                            android:layout_marginTop="8dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Botón de Reconexión / Desconexión Bluetooth -->
+                <Button
+                    android:id="@+id/btnConnect"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:text="Conectar / Reintentar Bluetooth"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="#2563EB"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- Botón de Cierre de Sesión -->
+                <Button
+                    android:id="@+id/btnLogout"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Cerrar Sesión Segura"
+                    android:textColor="#475569"
+                    android:backgroundTint="#E2E8F0"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
